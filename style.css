@@ -15,3 +15,6 @@ nav .btn {
   color: white;
   background: var(--logo-primary);
 }
+.nav-link {
+  font-weight: 700;
+}
