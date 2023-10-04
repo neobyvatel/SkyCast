@@ -11,6 +11,14 @@
 .fa-cloud {
   color: var(--logo-primary);
 }
+body {
+  background: rgb(207, 255, 251);
+  background: linear-gradient(
+    90deg,
+    rgba(207, 255, 251, 1) 0%,
+    rgba(145, 214, 255, 1) 100%
+  );
+}
 nav .btn {
   color: white;
   background: var(--logo-primary);
@@ -19,10 +27,34 @@ nav .btn {
   font-weight: 700;
 }
 .weather-01 {
-  background:background: rgb(159,254,255);
-background: linear-gradient(0deg, rgba(159,254,255,1) 0%, rgba(255,248,143,1) 100%);
+  background: rgb(253, 255, 130);
+  background: linear-gradient(
+    0deg,
+    rgba(253, 255, 130, 1) 0%,
+    rgba(255, 255, 255, 1) 100%
+  );
 }
 .weather-02 {
-  background: rgb(0,0,0);
-background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(67,93,255,1) 100%);
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(67, 93, 255, 1) 100%
+  );
+}
+.row-timeline-am {
+  background: rgb(253, 255, 130);
+  background: linear-gradient(
+    0deg,
+    rgba(253, 255, 130, 1) 0%,
+    rgba(255, 255, 255, 1) 100%
+  );
+}
+.row-timeline-pm {
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(67, 93, 255, 1) 100%
+  );
 }
