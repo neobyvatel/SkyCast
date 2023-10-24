@@ -41,7 +41,7 @@
     <div class="container-fluid">
       <nav class="navbar navbar-expand-lg navbar-light">
         <a class="navbar-brand" href="#"
-          ><i class="fa-solid fa-cloud"></i> Astana, Kazakhstan</a
+          ><i class="fa-solid fa-mountain-city"></i> Astana, Kazakhstan</a
         >
         <button
           class="navbar-toggler"
@@ -71,18 +71,16 @@
             <li class="nav-item">
               <a class="nav-link disabled" href="#">Air quality</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#">About us</a>
-            </li>
           </ul>
-          <form class="form-inline my-2 my-lg-0">
+          <form class="form-inline my-2 my-lg-0" id="weatherForm">
             <input
+              id="cityInput"
               class="form-control mr-sm-2"
               type="search"
               placeholder="Enter city name..."
               aria-label="Search"
             />
-            <button class="btn btn-info my-2 my-sm-0" type="submit">
+            <button class="btn my-2 my-sm-0" type="submit">
               <i class="fa-solid fa-magnifying-glass"></i>
             </button>
           </form>
@@ -94,17 +92,17 @@
       </h3>
       <div class="row p-4">
         <div class="col-12 col-md-6 d-flex justify-content-center p-3">
-          <div class="weather-01 weather-day shadow p-5 w-100 rounded">
-            <p>Day</p>
+          <div class="weather-01 weather-day shadow p-5 w-100 rounded-extra">
+            <p><i class="fa-solid fa-sun"></i> Day</p>
             <h1><i class="fa-solid fa-arrow-right"></i> 1200 mb</h1>
             <h3 class="text-muted">Cloudy</h3>
           </div>
         </div>
         <div class="col-12 col-md-6 d-flex justify-content-center p-3">
           <div
-            class="weather-02 weather-night shadow p-5 w-100 text-white rounded"
+            class="weather-02 weather-night shadow p-5 w-100 text-white rounded-extra"
           >
-            <p>Night</p>
+            <p><i class="fa-solid fa-moon"></i> Night</p>
             <h1><i class="fa-solid fa-arrow-right"></i> 1180 mb</h1>
             <h3 class="text-muted">Clear</h3>
           </div>
@@ -114,8 +112,8 @@
         <i class="fa-solid fa-clock"></i>
         <span style="font-weight: 700">Pressure</span> by timeline:
       </h3>
-      <div class="timeline-container rounded p-5">
-        <div class="row row-timeline-am p-3 rounded g-2 mb-2 shadow">
+      <div class="timeline-container rounded-extra p-5">
+        <div class="row row-timeline-am p-3 rounded-extra g-2 mb-2 shadow">
           <div class="col-12 col-md-6 col-lg timeline-cell text-center">
             <p class="mb-1 mt-3">00:00 AM</p>
             <p>1200.8 mb</p>
@@ -165,7 +163,9 @@
             <p>1200.6 mb</p>
           </div>
         </div>
-        <div class="row row-timeline-pm p-3 rounded g-2 text-white shadow">
+        <div
+          class="row row-timeline-pm p-3 rounded-extra g-2 text-white shadow"
+        >
           <div class="col-12 col-md-6 col-lg timeline-cell text-center">
             <p class="mb-1 mt-3">00:00 PM</p>
             <p>1200.8 mb</p>
@@ -217,10 +217,11 @@
         </div>
       </div>
       <footer class="p-4">
-        &copy; Copyrighted by
+        &copy; Made by
         <a href="https://github.com/neobyvatel">Adil</a> and
         <a href="https://github.com/AidanaIbrayeva">Aidana</a>
       </footer>
     </div>
+    <script src="main.js"></script>
   </body>
 </html>
