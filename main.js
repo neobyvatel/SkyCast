@@ -1,5 +1,6 @@
 const form = document.getElementById("weatherForm");
 const cityInput = document.getElementById("cityInput");
+const resultContainer = document.getElementById("resultContainer");
 
 form.addEventListener("submit", function (event) {
   event.preventDefault();
@@ -10,11 +11,7 @@ form.addEventListener("submit", function (event) {
     alert("Please enter a city name.");
   } else {
     console.log("Form submitted!");
-    // If the city name is not empty, you can proceed with the form submission
-    // For example, you can make an API request with the city name here.
-    // fetchWeatherData(city);
-
-    // Reset the form input field
+    fetchWeatherData(city);
     cityInput.value = "";
   }
 });
@@ -22,7 +19,26 @@ form.addEventListener("submit", function (event) {
 cityInput.addEventListener("keypress", function (event) {
   if (event.key === "Enter") {
     console.log("Enter key pressed");
-    event.preventDefault(); // Prevent form submission
-    form.dispatchEvent(new Event("submit")); // Trigger the form's submit event
+    event.preventDefault();
+    form.dispatchEvent(new Event("submit"));
   }
 });
+
+function fetchWeatherData(city) {
+  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=122f759f3073bc3b285d10fb134175c4`)
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      displayWeatherData(data);
+    })
+    .catch(error => console.error('Error fetching weather data:', error));
+}
+
+function displayWeatherData(data) {
+  resultContainer.innerHTML = `
+    <h2>Weather in ${data.name}</h2>
+    <p>Temperature: ${data.main.temp}°C</p>
+    <p>Description: ${data.weather[0].description}</p>
+  `;
+}
+
