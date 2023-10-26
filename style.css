@@ -7,19 +7,12 @@
   box-sizing: border-box; /*  tells the browser to account for any border and padding in the values you specify for an element's width and height
   reference:  https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing */
   font-family: Poppins, sans-serif;
+  text-decoration: none;
 }
 .fa-cloud {
   color: var(--logo-primary);
 }
 
-body {
-  background: rgb(119, 152, 255);
-  background: linear-gradient(
-    90deg,
-    rgba(119, 152, 255, 1) 0%,
-    rgba(34, 40, 113, 1) 100%
-  );
-}
 nav .btn {
   color: white;
   background: var(--logo-primary);
@@ -28,11 +21,11 @@ nav .btn {
   font-weight: 500;
 }
 .weather-01 {
-  background: rgb(255, 247, 155);
+  background: rgb(253, 255, 124);
   background: linear-gradient(
     90deg,
-    rgba(255, 247, 155, 1) 0%,
-    rgba(255, 255, 54, 1) 100%
+    rgba(253, 255, 124, 1) 0%,
+    rgba(246, 255, 16, 1) 100%
   );
 }
 .weather-01 h1,
@@ -48,11 +41,11 @@ nav .btn {
   );
 }
 .row-timeline-am {
-  background: rgb(255, 247, 155);
+  background: rgb(253, 255, 124);
   background: linear-gradient(
     90deg,
-    rgba(255, 247, 155, 1) 0%,
-    rgba(255, 255, 54, 1) 100%
+    rgba(253, 255, 124, 1) 0%,
+    rgba(246, 255, 16, 1) 100%
   );
 }
 .row-timeline-pm {
@@ -69,12 +62,20 @@ nav .btn {
 .rounded-extra {
   border-radius: 15px;
 }
+.weather-01,
+.row-timeline-am {
+  border: 1px solid #ccc;
+  transition: box-shadow 0.3s;
+}
+.weather-02,
+.row-timeline-pm {
+  border: 1px solid black;
+  transition: box-shadow 0.3s;
+}
 .weather-01:hover,
 .weather-02:hover,
 .row-timeline-am:hover,
 .row-timeline-pm:hover {
-  transform: scale(1.01);
-  transition: all 0.2s ease-in-out;
+  -webkit-box-shadow: 0px 0px 12px 4px rgba(0, 0, 0, 0.66);
+  box-shadow: 0px 0px 12px 4px rgba(0, 0, 0, 0.66) !important;
 }
-
-/* slider */
