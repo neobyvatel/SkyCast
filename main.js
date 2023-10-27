@@ -44,49 +44,32 @@ function displayWeatherData(data) {
   `;
 }
 
-//slider
-let slideIndex = 1;
-const slides = document.getElementsByClassName("slide");
-const dots = document.getElementsByClassName("dot");
+//time
+function showTime() {
+  var date = new Date();
+  var h = date.getHours(); // 0 - 23
+  var m = date.getMinutes(); // 0 - 59
+  var s = date.getSeconds(); // 0 - 59
+  var session = "AM";
 
-// Function to show a specific slide
-function showSlides(n) {
-  if (n > slides.length) {
-    slideIndex = 1;
-  }
-  if (n < 1) {
-    slideIndex = slides.length;
+  if (h == 0) {
+    h = 12;
   }
 
-  // Hide all slides
-  for (let i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
+  if (h > 12) {
+    h = h - 12;
+    session = "PM";
   }
 
-  // Remove the "active" class from all dots
-  for (let i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
+  h = h < 10 ? "0" + h : h;
+  m = m < 10 ? "0" + m : m;
+  s = s < 10 ? "0" + s : s;
 
-  // Display the current slide and mark its corresponding dot as active
-  slides[slideIndex - 1].style.display = "block";
-  dots[slideIndex - 1].className += " active";
+  var time = h + ":" + m + ":" + s + " " + session;
+  document.getElementById("MyClockDisplay").innerText = time;
+  document.getElementById("MyClockDisplay").textContent = time;
+
+  setTimeout(showTime, 1000);
 }
 
-// Function to advance to the next slide
-function plusSlides(n) {
-  showSlides((slideIndex += n));
-}
-
-// Function to navigate to a specific slide
-function currentSlide(n) {
-  showSlides((slideIndex = n));
-}
-
-// Automatically advance to the next slide every 3 seconds (3000 milliseconds)
-setInterval(function () {
-  plusSlides(1);
-}, 5000);
-
-// Initialize the slider
-showSlides(slideIndex);
+showTime();
