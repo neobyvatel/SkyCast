@@ -1,6 +1,7 @@
 const form = document.getElementById("weatherForm");
 const cityInput = document.getElementById("cityInput");
 const resultContainer = document.getElementById("resultContainer");
+const cityName = document.getElementById("cityName");
 
 form.addEventListener("submit", function (event) {
   event.preventDefault();
@@ -12,6 +13,7 @@ form.addEventListener("submit", function (event) {
   } else {
     console.log("Form submitted!");
     fetchWeatherData(city);
+    cityName.innerHTML = '<i class="fa-solid fa-mountain-city"></i> ' + city;
     cityInput.value = "";
   }
 });
@@ -24,33 +26,33 @@ cityInput.addEventListener("keypress", function (event) {
   }
 });
 
-function fetchWeatherData(city) {
-  fetch(
-    `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=122f759f3073bc3b285d10fb134175c4`
-  )
-    .then((response) => response.json())
-    .then((data) => {
-      console.log(data);
-      displayWeatherData(data);
-    })
-    .catch((error) => console.error("Error fetching weather data:", error));
-}
+// function fetchWeatherData(city) {
+//   fetch(
+//     `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=122f759f3073bc3b285d10fb134175c4`
+//   )
+//     .then((response) => response.json())
+//     .then((data) => {
+//       console.log(data);
+//       displayWeatherData(data);
+//     })
+//     .catch((error) => console.error("Error fetching weather data:", error));
+// }
 
-function displayWeatherData(data) {
-  resultContainer.innerHTML = `
-    <h2>Weather in ${data.name}</h2>
-    <p>Temperature: ${data.main.temp}°C</p>
-    <p>Description: ${data.weather[0].description}</p>
-  `;
-}
+// function displayWeatherData(data) {
+//   resultContainer.innerHTML = `
+//     <h2>Weather in ${data.name}</h2>
+//     <p>Temperature: ${data.main.temp}°C</p>
+//     <p>Description: ${data.weather[0].description}</p>
+//   `;
+// }
 
 //time
 function showTime() {
-  var date = new Date();
-  var h = date.getHours(); // 0 - 23
-  var m = date.getMinutes(); // 0 - 59
-  var s = date.getSeconds(); // 0 - 59
-  var session = "AM";
+  let date = new Date();
+  let h = date.getHours(); // 0 - 23
+  let m = date.getMinutes(); // 0 - 59
+  let s = date.getSeconds(); // 0 - 59
+  let session = "AM";
 
   if (h == 0) {
     h = 12;
@@ -65,8 +67,8 @@ function showTime() {
   m = m < 10 ? "0" + m : m;
   s = s < 10 ? "0" + s : s;
 
-  var time = h + ":" + m + ":" + s + " " + session;
-  document.getElementById("MyClockDisplay").innerText = time;
+  let time = h + ":" + m + ":" + s + " " + session;
+
   document.getElementById("MyClockDisplay").textContent = time;
 
   setTimeout(showTime, 1000);

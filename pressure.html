@@ -40,7 +40,7 @@
     ></script>
     <nav class="navbar navbar-expand-lg navbar-light p-4">
       <a class="navbar-brand" href="#"
-        ><i class="fa-solid fa-mountain-city"></i> Astana, Kazakhstan</a
+        ><i class="fa-solid fa-mountain-city"></i> Astana</a
       >
       <button
         class="navbar-toggler"
@@ -86,6 +86,19 @@
       </div>
     </nav>
     <div class="container-fluid">
+      <div class="clockContainer p-4">
+        <h1 class="text-muted" style="font-family: Orbitron">Current time:</h1>
+        <div
+          id="MyClockDisplay"
+          class="clock"
+          onload="showTime()"
+          style="
+            font-size: 60px;
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 7px;
+          "
+        ></div>
+      </div>
       <h3 class="p-4">
         <i class="fa-solid fa-wind"></i>
         <span style="font-weight: 700">Pressure</span> forecast:

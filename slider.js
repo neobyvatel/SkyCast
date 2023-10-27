@@ -34,5 +34,4 @@ setInterval(function () {
   plusSlides(1);
 }, 4000);
 
-// Initialize the slider
 showSlides(slideIndex);

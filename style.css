@@ -237,3 +237,20 @@ nav .btn {
     opacity: 1;
   }
 }
+
+.logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 5;
+  width: 70px;
+  height: 70px;
+}
+.logo-text {
+  position: absolute;
+  top: 20px;
+  left: 90px;
+  z-index: 6;
+  font-size: 1.9rem;
+  letter-spacing: 0.3rem;
+}
