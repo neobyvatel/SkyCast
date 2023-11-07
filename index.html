@@ -12,11 +12,14 @@
     <link rel="icon" type="image/x-icon" href="assets/favicon.svg" />
     <title>Weather App</title>
   </head>
-  <body class="bg-white dark:bg-neutral-900">
+  <body class="bg-white dark:bg-black">
     <header>
-      <nav class="bg-opacity-3 fixed top-0 z-10 bg-white dark:bg-black">
-        <div class="mx-auto w-screen p-4">
-          <div class="flex h-12 items-center justify-between">
+      <nav
+        class="bg-opacity-3 fixed top-0 z-10 border-neutral-700 bg-white dark:bg-neutral-950"
+        style="border: 1px solid #121212"
+      >
+        <div class="mx-auto w-screen px-10 py-3">
+          <div class="flex h-9 items-center justify-between">
             <a
               href="home.html"
               class="flex items-center justify-center px-2 dark:text-white"
@@ -33,7 +36,7 @@
  C33.411,174.51,0,207.914,0,249.122c0,41.216,33.411,74.619,74.619,74.619h0.746C80.277,267.458,127.625,223.146,185.158,223.146z"
                   />
                   <path
-                    fill="currentColor"
+                    fill="#FFB601"
                     d="M434.638,265.688c-0.03,0-0.06,0.008-0.098,0.008c0.045-1.288,0.098-2.576,0.098-3.872
  c0-61.956-50.218-112.174-112.167-112.174c-58.03,0-105.77,44.07-111.578,100.572c-8.136-2.516-16.769-3.873-25.735-3.873
  c-48.064,0-87.027,38.964-87.027,87.028c0,48.063,38.963,87.027,87.027,87.027h249.48c42.723,0,77.362-34.631,77.362-77.354
@@ -41,41 +44,35 @@
                   />
                 </g>
               </svg>
-              <span class="text-xl font-bold">Weather-app</span>
+              <span class="text-xl font-bold"
+                >Weather-<span class="text-[#FFB601]">app</span></span
+              >
             </a>
 
             <ul
-              class="text-md flex justify-between gap-4 font-medium dark:text-white"
+              class="text-md [&>*]:before:bg-primary flex h-9 flex-row justify-between gap-11 gap-x-6 font-medium dark:text-white [&>*]:relative [&>*]:flex [&>*]:h-full [&>*]:flex-shrink-0 [&>*]:items-center [&>*]:gap-1 [&>*]:px-2 [&>*]:no-underline [&>*]:before:absolute [&>*]:before:left-0 [&>*]:before:top-[95%] [&>*]:before:z-[0] [&>*]:before:hidden [&>*]:before:h-1 [&>*]:before:w-full [&>*]:before:rounded-t-full [&>*]:before:content-[''] [&>.router-link-exact-active]:before:block"
             >
-              <li class="hover:text-gray-300"><a href="#"> Home</a></li>
-              <li class="hover:text-gray-300">
+              <li class="navbar-link hover:text-gray-300">
+                <a href="#"> About us</a>
+              </li>
+              <li class="navbar-link hover:text-gray-300">
                 <a href="#" class="active"> Weather </a>
               </li>
-              <li class="hover:text-gray-300"><a href="#"> Air quality </a></li>
-              <li class="hover:text-gray-300"><a href="#"> About us </a></li>
+              <li class="navbar-link hover:text-gray-300">
+                <a href="#"> Air quality </a>
+              </li>
+              <li class="navbar-link hover:text-gray-300">
+                <a href="#"> Home </a>
+              </li>
             </ul>
-            <div class="flex items-center gap-1">
+            <div class="flex items-center gap-3">
               <button
-                class="flex h-7 w-7 items-center justify-center text-white"
-              >
-                <svg
-                  class="h-full w-full"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    fill="currentColor"
-                    d="M12 21q-3.75 0-6.375-2.625T3 12q0-3.75 2.625-6.375T12 3q.35 0 .688.025t.662.075q-1.025.725-1.638 1.888T11.1 7.5q0 2.25 1.575 3.825T16.5 12.9q1.375 0 2.525-.613T20.9 10.65q.05.325.075.662T21 12q0 3.75-2.625 6.375T12 21Z"
-                  />
-                </svg>
-              </button>
-              <button
-                class="w-20 rounded-lg p-2 px-4 text-sm font-semibold transition-all hover:bg-gray-300 dark:text-white dark:hover:text-black dark:hover:text-white"
+                class="w-20 rounded-lg p-2 px-4 text-sm font-bold transition-all hover:bg-gray-300 dark:text-[#D0BCFF]"
               >
                 Login
               </button>
               <button
-                class="rounded-lg bg-fuchsia-700 p-2 px-4 text-sm font-semibold text-white shadow-lg transition-all hover:bg-fuchsia-900"
+                class="rounded-lg bg-[#D0BCFF] p-2 px-4 text-sm font-semibold text-white shadow-lg transition-all hover:bg-[#B899FF] dark:text-neutral-950"
               >
                 Register
               </button>
@@ -107,7 +104,7 @@
     </main>
 
     <footer
-      class="dark: flex-shrink-0 bg-slate-400 p-7 text-start text-black dark:bg-neutral-900 dark:text-slate-200"
+      class="dark: flex-shrink-0 bg-slate-400 p-7 text-start text-black dark:bg-neutral-950 dark:text-slate-200"
     >
       <hr class="mb-4 bg-neutral-500 dark:bg-neutral-300" />
       <p class="text-md font-medium">Contributors:</p>
