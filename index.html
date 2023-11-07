@@ -1,239 +1,132 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+
+<html lang="en" class="dark">
   <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
 
-    <!-- Bootstrap CSS -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
-      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-      crossorigin="anonymous"
-    />
-
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" type="image/x-icon" href="assets/favicon.svg" />
     <title>Weather App</title>
   </head>
-  <body>
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"
-      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
-      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-      crossorigin="anonymous"
-    ></script>
+  <body class="bg-white dark:bg-neutral-900">
+    <header>
+      <nav class="bg-opacity-3 fixed top-0 z-10 bg-white dark:bg-black">
+        <div class="mx-auto w-screen p-4">
+          <div class="flex h-12 items-center justify-between">
+            <a
+              href="home.html"
+              class="flex items-center justify-center px-2 dark:text-white"
+            >
+              <svg
+                class="h-12 w-12 text-black dark:text-white"
+                viewBox="0 0 512 512"
+              >
+                <g>
+                  <path
+                    fill="currentColor"
+                    d="M185.158,223.146c2.486,0,4.965,0.076,7.436,0.248c11.88-40.59,41.969-72.75,80.556-87.742
+ c-17.131-26.503-46.904-44.056-80.804-44.056c-49.751,0-90.689,37.788-95.66,86.236c-6.976-2.162-14.389-3.323-22.066-3.323
+ C33.411,174.51,0,207.914,0,249.122c0,41.216,33.411,74.619,74.619,74.619h0.746C80.277,267.458,127.625,223.146,185.158,223.146z"
+                  />
+                  <path
+                    fill="currentColor"
+                    d="M434.638,265.688c-0.03,0-0.06,0.008-0.098,0.008c0.045-1.288,0.098-2.576,0.098-3.872
+ c0-61.956-50.218-112.174-112.167-112.174c-58.03,0-105.77,44.07-111.578,100.572c-8.136-2.516-16.769-3.873-25.735-3.873
+ c-48.064,0-87.027,38.964-87.027,87.028c0,48.063,38.963,87.027,87.027,87.027h249.48c42.723,0,77.362-34.631,77.362-77.354
+ C512,300.32,477.361,265.688,434.638,265.688z"
+                  />
+                </g>
+              </svg>
+              <span class="text-xl font-bold">Weather-app</span>
+            </a>
+
+            <ul
+              class="text-md flex justify-between gap-4 font-medium dark:text-white"
+            >
+              <li class="hover:text-gray-300"><a href="#"> Home</a></li>
+              <li class="hover:text-gray-300">
+                <a href="#" class="active"> Weather </a>
+              </li>
+              <li class="hover:text-gray-300"><a href="#"> Air quality </a></li>
+              <li class="hover:text-gray-300"><a href="#"> About us </a></li>
+            </ul>
+            <div class="flex items-center gap-1">
+              <button
+                class="flex h-7 w-7 items-center justify-center text-white"
+              >
+                <svg
+                  class="h-full w-full"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M12 21q-3.75 0-6.375-2.625T3 12q0-3.75 2.625-6.375T12 3q.35 0 .688.025t.662.075q-1.025.725-1.638 1.888T11.1 7.5q0 2.25 1.575 3.825T16.5 12.9q1.375 0 2.525-.613T20.9 10.65q.05.325.075.662T21 12q0 3.75-2.625 6.375T12 21Z"
+                  />
+                </svg>
+              </button>
+              <button
+                class="w-20 rounded-lg p-2 px-4 text-sm font-semibold transition-all hover:bg-gray-300 dark:text-white dark:hover:text-black dark:hover:text-white"
+              >
+                Login
+              </button>
+              <button
+                class="rounded-lg bg-fuchsia-700 p-2 px-4 text-sm font-semibold text-white shadow-lg transition-all hover:bg-fuchsia-900"
+              >
+                Register
+              </button>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main class="mt-20">
+      <div id="input-group" class="p-4">
+        <p class="info-txt mx-auto"></p>
+        <div class="flex items-center gap-5">
+          <div>
+            <input
+              type="text"
+              placeholder="Enter city name"
+              id="small-input"
+              class="block w-40 rounded-lg border border-gray-300 bg-gray-50 p-2 text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500 sm:text-xs"
+            />
+          </div>
+          <span class="dark:text-white">or</span>
+          <button
+            class="rounded-lg bg-fuchsia-700 p-2 px-4 text-sm font-semibold text-white shadow-lg transition-all hover:bg-fuchsia-900"
+          >
+            Get Device Location
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <footer
+      class="dark: flex-shrink-0 bg-slate-400 p-7 text-start text-black dark:bg-neutral-900 dark:text-slate-200"
+    >
+      <hr class="mb-4 bg-neutral-500 dark:bg-neutral-300" />
+      <p class="text-md font-medium">Contributors:</p>
+      <br />
+      <a
+        class="text-sm font-thin hover:underline"
+        href="https://github.com/neobyvatel"
+        >neobyvatel</a
+      ><br />
+      <a
+        class="text-sm font-thin hover:underline"
+        href="https://github.com/AidanaIbrayeva"
+        >Aidana</a
+      >
+    </footer>
     <script
       src="https://kit.fontawesome.com/c96718c68d.js"
       crossorigin="anonymous"
     ></script>
-    <nav class="navbar navbar-expand-lg navbar-light p-4">
-      <a class="navbar-brand" id="cityName" href="#"
-        ><i class="fa-solid fa-mountain-city"></i> Astana</a
-      >
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="home.html">Home</a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="index.html" 
-              >Weather <span class="sr-only">(current)</span></a
-            >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="humidity.html">Humitidy</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="pressure.html">Pressure</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#">Air quality</a>
-          </li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0" id="weatherForm">
-          <input
-            id="cityInput"
-            class="form-control mr-sm-2"
-            type="search"
-            placeholder="Enter city name..."
-            aria-label="Search"
-          />
-          <button class="btn my-2 my-sm-0" type="submit">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </button>
-        </form>
-      
-    </nav>
-    <div></div>
-    <div class="container-fluid">
-      <div class="clockContainer p-4"><h1 class="text-muted" style="font-family:Orbitron">Current time:</h1>
-      <div id="MyClockDisplay" class="clock" onload="showTime()" style="font-size: 60px; font-family: 'Orbitron', sans-serif; letter-spacing: 7px;"></div>
-    </div>
-      <h3 class="p-4">
-        <i class="fa-solid fa-wind"></i>
-        <span style="font-weight: 700">Weather</span> Forecast:
-      </h3>
-      <div class="row p-4">
-        <div class="col-12 col-md-6 d-flex justify-content-center p-3">
-          <div class="weather-01 weather-day shadow p-5 w-100 rounded-extra">
-            <p><i class="fa-solid fa-sun"></i> Day</p>
-            <h1>22 &deg; C</h1>
-            <h3 class="text-muted"><i class="fa-solid fa-cloud"></i> Cloudy</h3>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 d-flex justify-content-center p-3">
-          <div
-            class="weather-02 weather-night shadow p-5 w-100 text-white rounded-extra"
-          >
-            <p><i class="fa-solid fa-moon"></i> Night</p>
-            <h1>18 &deg; C</h1>
-            <h3 class="text-muted"><i class="fa-regular fa-sun"></i> Clear</h3>
-          </div>
-        </div>
-      </div>
-      <h3 class="p-3">
-        <i class="fa-solid fa-clock"></i>
-        <span style="font-weight: 700">Temperature</span> by timeline:
-      </h3>
-      <div class="timeline-container p-5">
-        <div class="row row-timeline-am p-3 rounded-extra g-2 mb-2 shadow">
-          <div class="col-12 col-md-6 col-lg timeline-cell text-center">
-            <p class="mb-1 mt-3">00:00 AM</p>
-            <p>21.8 &deg;C</p>
-          </div>
-          <div class="col-12 col-md-6 col-lg timeline-cell text-center">
-            <p class="mb-1 mt-3">01:00 AM</p>
-            <p>22.3 &deg;C</p>
-          </div>
-          <div class="col-12 col-md-6 col-lg timeline-cell text-center">
-            <p class="mb-1 mt-3">02:00 AM</p>
-            <p>22.7 &deg;C</p>
-          </div>
-          <div class="col-12 col-md-6 col-lg timeline-cell text-center">
-            <p class="mb-1 mt-3">03:00 AM</p>
-            <p>23.1 &deg;C</p>
-          </div>
-          <div class="col-12 col-md-6 col-lg timeline-cell text-center">
-            <p class="mb-1 mt-3">04:00 AM</p>
-            <p>23.5 &deg;C</p>
-          </div>
-          <div class="col-12 col-md-6 col-lg timeline-cell text-center">
-            <p class="mb-1 mt-3">05:00 AM</p>
-            <p>24.0 &deg;C</p>
-          </div>
-          <div class="col-12 col-md-6 col-lg timeline-cell text-center">
-            <p class="mb-1 mt-3">06:00 AM</p>
-            <p>24.3 &deg;C</p>
-          </div>
-          <div class="col-12 col-md-6 col-lg timeline-cell text-center">
-            <p class="mb-1 mt-3">07:00 AM</p>
-            <p>24.8 &deg;C</p>
-          </div>
-          <div class="col-12 col-md-6 col-lg timeline-cell text-center">
-            <p class="mb-1 mt-3">08:00 AM</p>
-            <p>25.2 &deg;C</p>
-          </div>
-          <div class="col-12 col-md-6 col-lg timeline-cell text-center">
-            <p class="mb-1 mt-3">09:00 AM</p>
-            <p>25.7 &deg;C</p>
-          </div>
-          <div class="col-12 col-md-6 col-lg timeline-cell text-center">
-            <p class="mb-1 mt-3">10:00 AM</p>
-            <p>26.1 &deg;C</p>
-          </div>
-          <div class="col-12 col-md-6 col-lg timeline-cell text-center">
-            <p class="mb-1 mt-3">11:00 AM</p>
-            <p>26.6 &deg;C</p>
-          </div>
-        </div>
-        <div
-          class="row row-timeline-pm p-3 rounded-extra g-2 text-white shadow"
-        >
-          <div class="col-12 col-md-6 col-lg timeline-cell text-center">
-            <p class="mb-1 mt-3">00:00 PM</p>
-            <p>21.8 &deg;C</p>
-          </div>
-          <div class="col-12 col-md-6 col-lg timeline-cell text-center">
-            <p class="mb-1 mt-3">01:00 PM</p>
-            <p>22.3 &deg;C</p>
-          </div>
-          <div class="col-12 col-md-6 col-lg timeline-cell text-center">
-            <p class="mb-1 mt-3">02:00 PM</p>
-            <p>22.7 &deg;C</p>
-          </div>
-          <div class="col-12 col-md-6 col-lg timeline-cell text-center">
-            <p class="mb-1 mt-3">03:00 PM</p>
-            <p>23.1 &deg;C</p>
-          </div>
-          <div class="col-12 col-md-6 col-lg timeline-cell text-center">
-            <p class="mb-1 mt-3">04:00 PM</p>
-            <p>23.5 &deg;C</p>
-          </div>
-          <div class="col-12 col-md-6 col-lg timeline-cell text-center">
-            <p class="mb-1 mt-3">05:00 PM</p>
-            <p>24.0 &deg;C</p>
-          </div>
-          <div class="col-12 col-md-6 col-lg timeline-cell text-center">
-            <p class="mb-1 mt-3">06:00 PM</p>
-            <p>24.3 &deg;C</p>
-          </div>
-          <div class="col-12 col-md-6 col-lg timeline-cell text-center">
-            <p class="mb-1 mt-3">07:00 PM</p>
-            <p>24.8 &deg;C</p>
-          </div>
-          <div class="col-12 col-md-6 col-lg timeline-cell text-center">
-            <p class="mb-1 mt-3">08:00 PM</p>
-            <p>25.2 &deg;C</p>
-          </div>
-          <div class="col-12 col-md-6 col-lg timeline-cell text-center">
-            <p class="mb-1 mt-3">09:00 PM</p>
-            <p>25.7 &deg;C</p>
-          </div>
-          <div class="col-12 col-md-6 col-lg timeline-cell text-center">
-            <p class="mb-1 mt-3">10:00 PM</p>
-            <p>26.1 &deg;C</p>
-          </div>
-          <div class="col-12 col-md-6 col-lg timeline-cell text-center">
-            <p class="mb-1 mt-3">11:00 PM</p>
-            <p>26.6 &deg;C</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <footer id="sticky-footer" class="flex-shrink-0 py-4 bg-dark text-white-50">
-      <div class="container text-center">
-        Contributors: <br />
-        <a href="https://github.com/neobyvatel">neobyvatel</a><br />
-        <a href="https://github.com/AidanaIbrayeva">Aidana</a>
-      </div>
-    </footer>
     <script src="main.js"></script>
   </body>
 </html>
