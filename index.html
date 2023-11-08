@@ -1,6 +1,6 @@
 <!doctype html>
 
-<html lang="en" class="dark">
+<html lang="en" class="light">
   <head>
     <meta charset="utf-8" />
     <meta
@@ -12,13 +12,115 @@
     <link rel="icon" type="image/x-icon" href="assets/favicon.svg" />
     <title>Weather App</title>
   </head>
-  <body class="bg-white dark:bg-black">
+  <body class="flex min-h-screen flex-col bg-white dark:bg-black">
     <header>
-      <nav
-        class="bg-opacity-3 fixed top-0 z-10 border-neutral-700 bg-white dark:bg-neutral-950"
-        style="border: 1px solid #121212"
+      <nav class="border-gray-200 bg-white shadow-sm dark:bg-gray-900">
+        <div
+          class="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-4"
+        >
+          <a
+            href="home.html"
+            class="flex items-center justify-center px-2 dark:text-white"
+          >
+            <svg
+              class="h-12 w-12 text-black dark:text-white"
+              viewBox="0 0 512 512"
+            >
+              <g>
+                <path
+                  fill="currentColor"
+                  d="M185.158,223.146c2.486,0,4.965,0.076,7.436,0.248c11.88-40.59,41.969-72.75,80.556-87.742
+c-17.131-26.503-46.904-44.056-80.804-44.056c-49.751,0-90.689,37.788-95.66,86.236c-6.976-2.162-14.389-3.323-22.066-3.323
+C33.411,174.51,0,207.914,0,249.122c0,41.216,33.411,74.619,74.619,74.619h0.746C80.277,267.458,127.625,223.146,185.158,223.146z"
+                />
+                <path
+                  fill="#FFB601"
+                  d="M434.638,265.688c-0.03,0-0.06,0.008-0.098,0.008c0.045-1.288,0.098-2.576,0.098-3.872
+c0-61.956-50.218-112.174-112.167-112.174c-58.03,0-105.77,44.07-111.578,100.572c-8.136-2.516-16.769-3.873-25.735-3.873
+c-48.064,0-87.027,38.964-87.027,87.028c0,48.063,38.963,87.027,87.027,87.027h249.48c42.723,0,77.362-34.631,77.362-77.354
+C512,300.32,477.361,265.688,434.638,265.688z"
+                />
+              </g>
+            </svg>
+            <span class="text-xl font-bold"
+              >Weather-<span class="text-[#FFB601]">app</span></span
+            >
+          </a>
+          <button
+            data-collapse-toggle="navbar-default"
+            id="navbar-toggle"
+            onclick="toggleNavbar('navbar-default')"
+            type="button"
+            class="inline-flex h-10 w-10 items-center justify-center rounded-lg p-2 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 md:hidden"
+            aria-controls="navbar-default"
+            aria-expanded="false"
+          >
+            <span class="sr-only">Open main menu</span>
+            <svg
+              class="h-5 w-5"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 17 14"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M1 1h15M1 7h15M1 13h15"
+              />
+            </svg>
+          </button>
+          <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+            <ul
+              class="mt-4 flex flex-col rounded-lg border border-gray-100 bg-gray-50 p-4 font-medium dark:border-gray-700 dark:bg-gray-800 md:mt-0 md:flex-row md:space-x-8 md:border-0 md:bg-white md:p-0 md:dark:bg-gray-900"
+            >
+              <li>
+                <a
+                  href="#"
+                  class="block rounded bg-[#591D87] py-2 pl-3 pr-4 text-white dark:text-white md:bg-transparent md:p-0 md:text-[#591D87] md:dark:text-blue-500"
+                  aria-current="page"
+                  >Weather</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="block rounded py-2 pl-3 pr-4 text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:bg-transparent md:dark:hover:text-blue-500"
+                  >About Us</a
+                >
+              </li>
+
+              <li>
+                <a
+                  href="#"
+                  class="block rounded py-2 pl-3 pr-4 text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:bg-transparent md:dark:hover:text-blue-500"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="block rounded py-2 pl-3 pr-4 text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:bg-transparent md:dark:hover:text-blue-500"
+                  >Register</a
+                >
+              </li>
+            </ul>
+          </div>
+          <button
+            class="hidden rounded-lg bg-[#591D87] p-2 px-4 text-xs font-semibold text-white shadow-lg transition-all hover:bg-[#461669] dark:bg-[#D0BCFF] dark:text-neutral-950 dark:hover:bg-[#B899FF] md:block"
+          >
+            Register
+          </button>
+        </div>
+      </nav>
+
+      <!-- old navbar -->
+      <!-- <nav
+        class="bg-opacity-3 fixed top-0 z-10 w-full border-b-2 bg-white shadow dark:border-[#121212] dark:bg-neutral-950"
       >
-        <div class="mx-auto w-screen px-10 py-3">
+        <div class="mx-auto w-screen px-2 py-3 md:px-10">
           <div class="flex h-9 items-center justify-between">
             <a
               href="home.html"
@@ -48,63 +150,144 @@
                 >Weather-<span class="text-[#FFB601]">app</span></span
               >
             </a>
+            <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+              <ul
+                class="text-md [&>*]:before:bg-primary mt-25 flex h-9 flex-col justify-between gap-11 gap-x-6 rounded-lg border border-gray-100 bg-gray-50 p-4 font-medium dark:text-white md:mt-0 md:flex-row md:space-x-8 md:border-0 md:p-0 [&>*]:relative [&>*]:flex [&>*]:h-full [&>*]:flex-shrink-0 [&>*]:items-center [&>*]:gap-1 [&>*]:px-2 [&>*]:no-underline [&>*]:before:absolute [&>*]:before:left-0 [&>*]:before:top-[95%] [&>*]:before:z-[0] [&>*]:before:hidden [&>*]:before:h-1 [&>*]:before:w-full [&>*]:before:rounded-t-full [&>*]:before:content-[''] [&>.router-link-exact-active]:before:block"
+              >
+                <li class="navbar-link hover:text-gray-300">
+                  <a href="#"> About us</a>
+                </li>
+                <li class="navbar-link hover:text-gray-300">
+                  <a href="#" class="active"> Weather </a>
+                </li>
+                <li class="navbar-link hover:text-gray-300">
+                  <a href="#"> Air quality </a>
+                </li>
+                <li class="navbar-link hover:text-gray-300">
+                  <a href="#"> Home </a>
+                </li>
+              </ul>
+            </div>
 
-            <ul
-              class="text-md [&>*]:before:bg-primary flex h-9 flex-row justify-between gap-11 gap-x-6 font-medium dark:text-white [&>*]:relative [&>*]:flex [&>*]:h-full [&>*]:flex-shrink-0 [&>*]:items-center [&>*]:gap-1 [&>*]:px-2 [&>*]:no-underline [&>*]:before:absolute [&>*]:before:left-0 [&>*]:before:top-[95%] [&>*]:before:z-[0] [&>*]:before:hidden [&>*]:before:h-1 [&>*]:before:w-full [&>*]:before:rounded-t-full [&>*]:before:content-[''] [&>.router-link-exact-active]:before:block"
-            >
-              <li class="navbar-link hover:text-gray-300">
-                <a href="#"> About us</a>
-              </li>
-              <li class="navbar-link hover:text-gray-300">
-                <a href="#" class="active"> Weather </a>
-              </li>
-              <li class="navbar-link hover:text-gray-300">
-                <a href="#"> Air quality </a>
-              </li>
-              <li class="navbar-link hover:text-gray-300">
-                <a href="#"> Home </a>
-              </li>
-            </ul>
-            <div class="flex items-center gap-3">
+            <div class="gapz-3 hidden items-center md:flex">
               <button
-                class="w-20 rounded-lg p-2 px-4 text-sm font-bold transition-all hover:bg-gray-300 dark:text-[#D0BCFF]"
+                class="w-20 rounded-lg p-2 px-4 text-xs font-bold text-[#591D87] transition-all hover:bg-gray-300 dark:text-[#D0BCFF] dark:hover:bg-gray-500"
               >
                 Login
               </button>
               <button
-                class="rounded-lg bg-[#D0BCFF] p-2 px-4 text-sm font-semibold text-white shadow-lg transition-all hover:bg-[#B899FF] dark:text-neutral-950"
+                class="rounded-lg bg-[#591D87] p-2 px-4 text-xs font-semibold text-white shadow-lg transition-all hover:bg-[#461669] dark:bg-[#D0BCFF] dark:text-neutral-950 dark:hover:bg-[#B899FF]"
               >
                 Register
               </button>
             </div>
+            <button
+              data-collapse-toggle="navbar-default"
+              onclick="toggleNavbar('navbar-default')"
+              type="button"
+              class="inline-flex h-10 w-10 items-center justify-center rounded-lg p-2 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 md:hidden"
+              aria-controls="navbar-default"
+              aria-expanded="false"
+            >
+              <svg
+                class="h-5 w-5"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 17 14"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M1 1h15M1 7h15M1 13h15"
+                />
+              </svg>
+            </button>
           </div>
         </div>
-      </nav>
+      </nav> -->
     </header>
-    <main class="mt-20">
-      <div id="input-group" class="p-4">
-        <p class="info-txt mx-auto"></p>
-        <div class="flex items-center gap-5">
-          <div>
-            <input
-              type="text"
-              placeholder="Enter city name"
-              id="small-input"
-              class="block w-40 rounded-lg border border-gray-300 bg-gray-50 p-2 text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500 sm:text-xs"
-            />
-          </div>
-          <span class="dark:text-white">or</span>
-          <button
-            class="rounded-lg bg-fuchsia-700 p-2 px-4 text-sm font-semibold text-white shadow-lg transition-all hover:bg-fuchsia-900"
-          >
-            Get Device Location
-          </button>
+
+    <main class="mt-20 flex flex-col">
+      <div
+        class="clock mx-20 mb-20 flex h-24 w-auto items-center justify-center rounded-lg bg-[#591D87] p-3 shadow-xl"
+      >
+        <div
+          class="display font-orbitron text-5xl tracking-wider text-slate-50"
+        >
+          <!-- Your clock content goes here -->
         </div>
+      </div>
+      <div id="input-group">
+        <div class="flex items-center justify-center gap-4">
+          <div class="flex flex-col gap-2">
+            <form>
+              <div class="mb-6">
+                <label
+                  for="input-latitude"
+                  class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+                  >Latitude</label
+                >
+                <input
+                  type="text"
+                  id="input-latitude"
+                  inputmode="numeric"
+                  value="51.16"
+                  class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                  required
+                />
+              </div>
+              <div class="mb-6">
+                <label
+                  for="input-longitude"
+                  class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+                  >Latitude</label
+                >
+                <input
+                  type="input-longitude"
+                  inputmode="numeric"
+                  value="71.47"
+                  id="password"
+                  class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                  required
+                />
+              </div>
+              <button
+                type="submit"
+                class="w-full rounded-lg bg-[#591D87] p-2 px-4 text-xs font-semibold text-white shadow-lg transition-all hover:bg-[#461669] dark:bg-[#D0BCFF] dark:text-neutral-950 dark:hover:bg-[#B899FF]"
+              >
+                Submit
+              </button>
+            </form>
+            <button
+              id="get-location"
+              class="w-full rounded-lg bg-[#591D87] p-2 px-4 text-xs font-semibold text-white shadow-lg transition-all hover:bg-[#461669] dark:bg-[#D0BCFF] dark:text-neutral-950 dark:hover:bg-[#B899FF]"
+            >
+              Use Current Location
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="card-container"></div>
+      <div class="card-body flex-1">
+        <h3 class="card-title">Weather Label</h3>
+        <p class="card-text">High Temp Low Temp</p>
+        <p class="card-text">HighFeels like</p>
+        <p class="card-text">Pressure</p>
+        <p class="card-text">Humidty</p>
+        <p class="card-text">UV Index</p>
+        <p class="card-text">Precipitation</p>
+        <p class="card-text">Dew Point</p>
+        <p class="card-text">Wind speed and direction</p>
+        <p class="card-text">Sunrise</p>
+        <p class="card-text">Sunset</p>
       </div>
     </main>
 
     <footer
-      class="dark: flex-shrink-0 bg-slate-400 p-7 text-start text-black dark:bg-neutral-950 dark:text-slate-200"
+      class="mt-auto bg-slate-400 p-7 text-start dark:bg-neutral-950 dark:text-slate-200"
     >
       <hr class="mb-4 bg-neutral-500 dark:bg-neutral-300" />
       <p class="text-md font-medium">Contributors:</p>
@@ -125,5 +308,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="main.js"></script>
+    <script src="clock.js"></script>
   </body>
 </html>
