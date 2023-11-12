@@ -5,86 +5,125 @@ function toggleNavbar(navbarId) {
   }
 }
 
-const app = {
-  init: () => {
-    document
-      .getElementById("btnGet")
-      .addEventListener("click", app.fetchWeather);
-    document
-      .getElementById("btnCurrent")
-      .addEventListener("click", app.getLocation);
-  },
-  fetchWeather: (ev) => {
-    let lat = document.getElementById("latitude").value;
-    let lon = document.getElementById("longitude").value;
-    let key = "e31236ca2959caf5178b8298a93073e8";
-    let lang = "en";
-    let units = "metric";
-    let url = `http://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${key}&units=${units}&lang=${lang}`;
-    //fetch the weather
-    fetch(url)
-      .then((resp) => {
-        if (!resp.ok) throw new Error(resp.statusText);
-        return resp.json();
-      })
-      .then((data) => {
-        app.showWeather(data);
-      })
-      .catch(console.err);
-  },
-  getLocation: (ev) => {
-    let opts = {
-      enableHighAccuracy: true,
-      timeout: 1000 * 10, //10 seconds
-      maximumAge: 1000 * 60 * 5, //5 minutes
-    };
-    navigator.geolocation.getCurrentPosition(app.ftw, app.wtf, opts);
-  },
-  ftw: (position) => {
-    console.log(position);
-    //got position
-    document.getElementById("latitude").value =
-      position.coords.latitude.toFixed(2);
-    document.getElementById("longitude").value =
-      position.coords.longitude.toFixed(2);
-  },
-  wtf: (err) => {
-    //geolocation failed
-    console.error(err);
-  },
-  showWeather: (resp) => {
-    console.log(resp);
-    // Update City
-    document.getElementById("city").textContent = `City: ${resp.timezone}`;
+document
+  .getElementById("latitude")
+  .addEventListener("keypress", function (event) {
+    if (event.key === "Enter") {
+      fetchWeather();
+    }
+  });
 
-    // Update Card 1: Main Temperature
-    document.getElementById(
-      "mainTemperature"
-    ).textContent = `Temperature: ${resp.current.temp} °C`;
+document
+  .getElementById("longitude")
+  .addEventListener("keypress", function (event) {
+    if (event.key === "Enter") {
+      fetchWeather();
+    }
+  });
 
-    // Update Card 2: Humidity
-    document.getElementById(
-      "humidity"
-    ).textContent = `Humidity: ${resp.current.humidity}%`;
+function fetchWeather(ev) {
+  let rawLat = document.getElementById("latitude").value;
+  let rawLon = document.getElementById("longitude").value;
 
-    // Update Card 3: Wind Information
-    document.getElementById(
-      "windSpeed"
-    ).textContent = `Speed: ${resp.current.wind_speed} m/s`;
-    document.getElementById(
-      "windDirection"
-    ).textContent = `Direction: ${resp.current.wind_deg}°`;
+  // Validate input using isNaN
+  if (isNaN(parseFloat(rawLat)) || isNaN(parseFloat(rawLon))) {
+    // Display an alert for invalid input
+    alert(
+      "Invalid input. Please enter valid numerical values for latitude and longitude."
+    );
+    return;
+  }
 
-    // Update Card 4: Pressure
-    document.getElementById(
-      "pressure"
-    ).textContent = `Pressure: ${resp.current.pressure} hPa`;
+  let lat = parseFloat(rawLat).toFixed(2);
+  let lon = parseFloat(rawLon).toFixed(2);
+  let key = "e31236ca2959caf5178b8298a93073e8";
+  let lang = "en";
+  let units = "metric";
+  let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${key}&lang=${lang}&units=${units}`;
+  //fetch the weather
+  fetch(url)
+    .then((resp) => {
+      if (!resp.ok) throw new Error(resp.statusText);
+      return resp.json();
+    })
+    .then((data) => {
+      showWeather(data);
+    })
+    .catch(console.error);
+}
 
-    // Update Card 5: UV Index
-    document.getElementById(
-      "uvIndex"
-    ).textContent = `UV Index: ${resp.current.uvi}`;
-  },
-};
+function getLocation(ev) {
+  let opts = {
+    enableHighAccuracy: true,
+    timeout: 1000 * 10, //10 seconds
+    maximumAge: 1000 * 60 * 5, //5 minutes
+  };
+  navigator.geolocation.getCurrentPosition(ftw, wtf, opts);
+}
 
-app.init();
+function ftw(position) {
+  console.log(position);
+  //got position
+  document.getElementById("latitude").value =
+    position.coords.latitude.toFixed(2);
+  document.getElementById("longitude").value =
+    position.coords.longitude.toFixed(2);
+}
+
+function wtf(err) {
+  //geolocation failed
+  console.error(err);
+}
+
+function showWeather(resp) {
+  console.log(resp);
+
+  // Update City
+  document.getElementById("city").textContent = `City: ${resp.name}`;
+
+  // Update Card 1: Main Temperature
+  document.getElementById(
+    "mainTemperature"
+  ).textContent = `Temperature: ${resp.main.temp} °C`;
+
+  // Update Card 2: Humidity
+  document.getElementById(
+    "humidity"
+  ).textContent = `Humidity: ${resp.main.humidity}%`;
+
+  // Update Card 3: Wind Information
+  document.getElementById(
+    "windSpeed"
+  ).textContent = `Speed: ${resp.wind.speed} m/s`;
+  document.getElementById(
+    "windDirection"
+  ).textContent = `Direction: ${resp.wind.deg}°`;
+
+  // Update Card 4: Pressure
+  document.getElementById(
+    "pressure"
+  ).textContent = `Pressure: ${resp.main.pressure} hPa`;
+
+  // Update Card 5: UV Index
+  document.getElementById("uvIndex").textContent = `UV Index: ${resp.uvi}`;
+}
+
+// Initialize event listeners
+document.getElementById("btnGet").addEventListener("click", fetchWeather);
+document.getElementById("btnCurrent").addEventListener("click", getLocation);
+
+// date.js
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Update the current date dynamically
+  const currentDateElement = document.getElementById("currentDate");
+  const currentDate = new Date();
+  const options = {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  };
+  const formattedDate = currentDate.toLocaleDateString("en-US", options);
+  currentDateElement.textContent = `Current Date: ${formattedDate}`;
+});
