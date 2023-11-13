@@ -1,10 +1,3 @@
-function toggleNavbar(navbarId) {
-  const navbar = document.getElementById(navbarId);
-  if (navbar) {
-    navbar.classList.toggle("hidden");
-  }
-}
-
 document
   .getElementById("latitude")
   .addEventListener("keypress", function (event) {
@@ -125,7 +118,15 @@ document.addEventListener("DOMContentLoaded", function () {
     day: "numeric",
   };
   const formattedDate = currentDate.toLocaleDateString("en-US", options);
-  currentDateElement.textContent = `Current Date: ${formattedDate}`;
+  currentDateElement.textContent = `${formattedDate}`;
+});
+document.addEventListener("DOMContentLoaded", function () {
+  const header = document.querySelector("header");
+  const toggleNavbarBtn = document.getElementById("toggleNavbarBtn");
+
+  toggleNavbarBtn.addEventListener("click", function () {
+    header.classList.toggle("expanded-nav");
+  });
 });
 
 // clock.js
@@ -163,3 +164,49 @@ setInterval(function () {
 
   clock.textContent = hr + ":" + min + ":" + sec + " " + day;
 }, 1000); // Update every 1000 milliseconds (1 second)
+
+const data = {
+  labels: [],
+  datasets: [
+    {
+      label: "Hourly Temperature",
+      data: [],
+      fill: false,
+      borderColor: "rgba(75, 192, 192, 1)",
+      borderWidth: 2,
+      fill: false,
+    },
+  ],
+};
+data.labels = [
+  "12:00 AM",
+  "3:00 AM",
+  "6:00 AM",
+  "9:00 AM",
+  "12:00 PM",
+  "3:00 PM",
+  "6:00 PM",
+  "9:00 PM",
+];
+data.datasets[0].data = [20, 22, 25, 28, 30, 28, 26, 24];
+const config = {
+  type: "line",
+  data: data,
+  options: {
+    responsive: true,
+    scales: {
+      x: {
+        type: "category",
+        labels: data.labels,
+      },
+      y: {
+        beginAtZero: true,
+      },
+    },
+  },
+};
+
+document.addEventListener("DOMContentLoaded", function () {
+  const ctx = document.getElementById("dailyTemp").getContext("2d");
+  const myLineChart = new Chart(ctx, config);
+});

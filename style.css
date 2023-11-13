@@ -10,88 +10,137 @@
 }
 
 @font-face {
-  font-family: "Orbitron";
-  src: url("/fonts/Orbitron-SemiBold.ttf") format("truetype");
-  font-weight: 600;
+  font-family: "Kanit";
+  src: url("/fonts/Kanit-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Kanit";
+  src: url("/fonts/Kanit-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+.navbar-link {
+  @apply flex h-full items-center gap-1;
+}
+
+.navbar-link {
+  position: relative;
+  text-decoration: none;
+}
+
+.navbar-link::before {
+  content: "";
+  position: absolute;
+  top: 95%;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  border-top-left-radius: 100px;
+  border-top-right-radius: 100px;
+  background-color: var(--primary);
+  display: none;
+  z-index: -1;
+}
+
+.navbar-link-active::before {
+  display: block;
+}
+.navbar-link {
+  @apply flex h-full items-center gap-1;
+}
+
+.navbar-link {
+  position: relative;
+  text-decoration: none;
+}
+
+.navbar-link::before {
+  content: "";
+  position: absolute;
+  top: 95%;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  border-top-left-radius: 100px;
+  border-top-right-radius: 100px;
+  background-color: var(--primary);
+  display: none;
+  z-index: -1;
+}
+/* Regular Styles */
+@font-face {
+  font-family: "Raleway";
+  src: url("static/Raleway-Thin.ttf") format("truetype");
+  font-weight: 100;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Orbitron";
-  src: url("/fonts/Orbitron-Medium.ttf") format("truetype");
+  font-family: "Raleway";
+  src: url("static/Raleway-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Raleway";
+  src: url("static/Raleway-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Raleway";
+  src: url("static/Raleway-Medium.ttf") format("truetype");
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Orbitron";
-  src: url("/fonts/Orbitron-ExtraBold.ttf") format("truetype");
-  font-weight: 800;
+  font-family: "Raleway";
+  src: url("static/Raleway-SemiBold.ttf") format("truetype");
+  font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Orbitron";
-  src: url("/fonts/Orbitron-Bold.ttf") format("truetype");
+  font-family: "Raleway";
+  src: url("static/Raleway-Bold.ttf") format("truetype");
   font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Orbitron";
-  src: url("/fonts/Orbitron-Black.ttf") format("truetype");
+  font-family: "Raleway";
+  src: url("static/Raleway-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Raleway";
+  src: url("static/Raleway-Black.ttf") format("truetype");
   font-weight: 900;
   font-style: normal;
 }
-.navbar-link {
-  @apply flex h-full items-center gap-1;
-}
 
-.navbar-link {
-  position: relative;
-  text-decoration: none;
-}
-
-.navbar-link::before {
-  content: "";
-  position: absolute;
-  top: 95%;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  border-top-left-radius: 100px;
-  border-top-right-radius: 100px;
-  background-color: var(--primary);
-  display: none;
-  z-index: -1;
+/* Italic Style - Regular Italic */
+@font-face {
+  font-family: "Raleway";
+  src: url("static/Raleway-Italic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
 }
 
 .navbar-link-active::before {
   display: block;
 }
-.navbar-link {
-  @apply flex h-full items-center gap-1;
-}
 
-.navbar-link {
-  position: relative;
-  text-decoration: none;
-}
-
-.navbar-link::before {
-  content: "";
-  position: absolute;
-  top: 95%;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  border-top-left-radius: 100px;
-  border-top-right-radius: 100px;
-  background-color: var(--primary);
-  display: none;
-  z-index: -1;
-}
-
-.navbar-link-active::before {
-  display: block;
+.main-content-pushed {
+  transform: translate-y(
+    200px
+  ); /* Adjust the value based on the height of your navbar */
+  transition: transform 0.3s ease; /* Add a smooth transition effect */
 }
