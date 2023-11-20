@@ -1,5 +1,4 @@
 <!doctype html>
-
 <html lang="en" class="light">
   <head>
     <meta charset="utf-8" />
@@ -16,18 +15,6 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" type="image/x-icon" href="assets/favicon.svg" />
     <title>Weather App</title>
-    <script>
-      // It's best to inline this in `head` to avoid FOUC (flash of unstyled content) when changing pages or themes
-      if (
-        localStorage.getItem("color-theme") === "dark" ||
-        (!("color-theme" in localStorage) &&
-          window.matchMedia("(prefers-color-scheme: dark)").matches)
-      ) {
-        document.documentElement.classList.add("dark");
-      } else {
-        document.documentElement.classList.remove("dark");
-      }
-    </script>
   </head>
   <body class="flex min-h-screen flex-col font-raleway dark:bg-neutral-950">
     <div
@@ -69,7 +56,7 @@
         >
           <a
             class="focus:shadow-outline mt-2 rounded-lg bg-gray-200 px-4 py-2 text-sm font-semibold text-gray-900 hover:bg-gray-200 hover:text-gray-900 focus:bg-gray-200 focus:text-gray-900 focus:outline-none dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:bg-gray-600 dark:focus:text-white md:mt-0"
-            href="#"
+            href="index.html"
             >Weather
           </a>
 
@@ -80,8 +67,8 @@
           >
           <a
             class="focus:shadow-outline mt-2 rounded-lg bg-transparent px-4 py-2 text-sm font-semibold hover:bg-gray-200 hover:text-gray-900 focus:bg-gray-200 focus:text-gray-900 focus:outline-none dark:bg-transparent dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:bg-gray-600 dark:focus:text-white md:ml-4 md:mt-0"
-            href="home.html"
-            >Home</a
+            href="#"
+            >Contact</a
           >
 
           <button
@@ -122,9 +109,102 @@
         </nav>
       </div>
     </div>
+    <main class="mt-auto">
+      <div class="slider-container">
+        <div class="slide fade">
+          <img
+            class="slide-image"
+            src="https://images.unsplash.com/photo-1682685796063-d2604827f7b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80"
+          />
+          <div class="slide-content">
+            <h3 class="slide-title">title 1</h3>
+            <p class="slide-desc">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Consectetur, necessitatibus.
+            </p>
+            <a href="" class="slide-btn">
+              button <ion-icon name="arrow-forward-circle"></ion-icon>
+            </a>
+          </div>
+          <div class="slide-number-container">
+            <p class="slider-number">01</p>
+            <hr />
+            <p class="slider-number">03</p>
+          </div>
+        </div>
 
-    <main class="mt-auto p-12"></main>
+        <div class="slide fade">
+          <img
+            class="slide-image"
+            src="https://images.unsplash.com/photo-1682687220566-5599dbbebf11?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1075&q=80"
+          />
+          <div class="slide-content">
+            <h3 class="slide-title">title 2</h3>
+            <p class="slide-desc">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Consectetur, necessitatibus.
+            </p>
+            <a href="" class="slide-btn">
+              button <ion-icon name="arrow-forward-circle"></ion-icon>
+            </a>
+          </div>
+          <div class="slide-number-container">
+            <p class="slider-number">02</p>
+            <hr />
+            <p class="slider-number">03</p>
+          </div>
+        </div>
 
+        <div class="slide fade">
+          <img
+            class="slide-image"
+            src="https://images.unsplash.com/photo-1682685797828-d3b2561deef4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80"
+          />
+          <div class="slide-content">
+            <h3 class="slide-title">title 3</h3>
+            <p class="slide-desc">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Consectetur, necessitatibus.
+            </p>
+            <a href="" class="slide-btn">
+              button <ion-icon name="arrow-forward-circle"></ion-icon>
+            </a>
+          </div>
+          <div class="slide-number-container">
+            <p class="slider-number">03</p>
+            <hr />
+            <p class="slider-number">03</p>
+          </div>
+        </div>
+
+        <!-- Next and previous buttons -->
+        <div class="slider-nav">
+          <a class="slider-nav-btn" onclick="plusSlides(-1)">
+            <ion-icon name="caret-back-outline"></ion-icon>
+          </a>
+          <a class="slider-nav-btn" onclick="plusSlides(1)">
+            <ion-icon name="caret-forward-outline"></ion-icon>
+          </a>
+        </div>
+
+        <!-- The dots/circles -->
+        <div class="dot-container">
+          <span class="dot" onclick="currentSlide(1)"></span>
+          <span class="dot" onclick="currentSlide(2)"></span>
+          <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+      </div>
+
+      <script
+        type="module"
+        src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+      ></script>
+      <script
+        nomodule
+        src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+      ></script>
+      <script src="slider.js"></script>
+    </main>
     <footer
       class="mt-auto bg-slate-400 p-7 text-start dark:bg-neutral-950 dark:text-slate-200"
     >
@@ -142,10 +222,5 @@
         >Aidana</a
       >
     </footer>
-    <script
-      src="https://kit.fontawesome.com/c96718c68d.js"
-      crossorigin="anonymous"
-    ></script>
-    <script type="module" src="main.js"></script>
   </body>
 </html>
