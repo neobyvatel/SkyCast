@@ -98,57 +98,41 @@ function wtf(err) {
 function showWeather(resp) {
   console.log(resp);
 
-  // // Update City
-  // document.getElementById(
-  //   "city-info"
-  // ).textContent = `${resp.name}, ${resp.sys.country}`;
+  // Update City
+  document.getElementById(
+    "city-info"
+  ).textContent = `${resp.name}, ${resp.sys.country}`;
 
-  // // Update Card 1: Main Temperature
-  // document.getElementById(
-  //   "mainTemperature"
-  // ).textContent = `Temperature: ${resp.main.temp} °C`;
+  // Update Card 1: Main Temperature
+  document.getElementById(
+    "mainTemperature"
+  ).textContent = `Temperature: ${resp.main.temp} °C`;
 
-  // // Update Card 2: Humidity
-  // document.getElementById(
-  //   "humidity"
-  // ).textContent = `Humidity: ${resp.main.humidity}%`;
+  // Update Card 2: Humidity
+  document.getElementById(
+    "humidity"
+  ).textContent = `Humidity: ${resp.main.humidity}%`;
 
-  // // Update Card 3: Wind Information
-  // document.getElementById(
-  //   "windSpeed"
-  // ).textContent = `Speed: ${resp.wind.speed} m/s`;
-  // document.getElementById(
-  //   "windDirection"
-  // ).textContent = `Direction: ${resp.wind.deg}°`;
+  // Update Card 3: Wind Information
+  document.getElementById(
+    "windSpeed"
+  ).textContent = `Speed: ${resp.wind.speed} m/s`;
+  document.getElementById(
+    "windDirection"
+  ).textContent = `Direction: ${resp.wind.deg}°`;
 
-  // // Update Card 4: Pressure
-  // document.getElementById(
-  //   "pressure"
-  // ).textContent = `Pressure: ${resp.main.pressure} hPa`;
+  // Update Card 4: Pressure
+  document.getElementById(
+    "pressure"
+  ).textContent = `Pressure: ${resp.main.pressure} hPa`;
 
-  // // Update Card 5: UV Index
-  // document.getElementById("uvIndex").textContent = `UV Index: ${resp.uvi}`;
+  // Update Card 5: UV Index
+  document.getElementById("uvIndex").textContent = `UV Index: ${resp.uvi}`;
 }
 
 // Initialize event listeners
 document.getElementById("btnGet").addEventListener("click", fetchWeather);
 document.getElementById("btnCurrent").addEventListener("click", getLocation);
-
-// date.js
-
-document.addEventListener("DOMContentLoaded", function () {
-  // Update the current date dynamically
-  const currentDateElement = document.getElementById("currentDate");
-  const currentDate = new Date();
-  const options = {
-    weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  };
-  const formattedDate = currentDate.toLocaleDateString("en-US", options);
-  currentDateElement.textContent = `${formattedDate}`;
-});
 
 // clock.js
 
@@ -186,48 +170,48 @@ document.addEventListener("DOMContentLoaded", function () {
 //   clock.textContent = hr + ":" + min + ":" + sec + " " + day;
 // }, 1000); // Update every 1000 milliseconds (1 second)
 
-const data = {
-  labels: [],
-  datasets: [
-    {
-      label: "Hourly Temperature",
-      data: [],
-      fill: false,
-      borderColor: "rgba(75, 192, 192, 1)",
-      borderWidth: 2,
-      fill: false,
-    },
-  ],
-};
-data.labels = [
-  "12:00 AM",
-  "3:00 AM",
-  "6:00 AM",
-  "9:00 AM",
-  "12:00 PM",
-  "3:00 PM",
-  "6:00 PM",
-  "9:00 PM",
-];
-data.datasets[0].data = [20, 22, 25, 28, 30, 28, 26, 24];
-const config = {
-  type: "line",
-  data: data,
-  options: {
-    responsive: true,
-    scales: {
-      x: {
-        type: "category",
-        labels: data.labels,
-      },
-      y: {
-        beginAtZero: true,
-      },
-    },
-  },
-};
+// const data = {
+//   labels: [],
+//   datasets: [
+//     {
+//       label: "Hourly Temperature",
+//       data: [],
+//       fill: false,
+//       borderColor: "rgba(75, 192, 192, 1)",
+//       borderWidth: 2,
+//       fill: false,
+//     },
+//   ],
+// };
+// data.labels = [
+//   "12:00 AM",
+//   "3:00 AM",
+//   "6:00 AM",
+//   "9:00 AM",
+//   "12:00 PM",
+//   "3:00 PM",
+//   "6:00 PM",
+//   "9:00 PM",
+// ];
+// data.datasets[0].data = [20, 22, 25, 28, 30, 28, 26, 24];
+// const config = {
+//   type: "line",
+//   data: data,
+//   options: {
+//     responsive: true,
+//     scales: {
+//       x: {
+//         type: "category",
+//         labels: data.labels,
+//       },
+//       y: {
+//         beginAtZero: true,
+//       },
+//     },
+//   },
+// };
 
-document.addEventListener("DOMContentLoaded", function () {
-  const ctx = document.getElementById("dailyTemp").getContext("2d");
-  const myLineChart = new Chart(ctx, config);
-});
+// document.addEventListener("DOMContentLoaded", function () {
+//   const ctx = document.getElementById("dailyTemp").getContext("2d");
+//   const myLineChart = new Chart(ctx, config);
+// });

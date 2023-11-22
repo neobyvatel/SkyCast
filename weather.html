@@ -1,5 +1,6 @@
 <!doctype html>
-<html lang="en" class="dark">
+
+<html lang="en" class="light">
   <head>
     <meta charset="utf-8" />
     <meta
@@ -11,14 +12,11 @@
       src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
     ></script>
     <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script
-      src="https://kit.fontawesome.com/c96718c68d.js"
-      crossorigin="anonymous"
-    ></script>
+
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" type="image/x-icon" href="assets/favicon.svg" />
     <title>Weather App</title>
-    <!-- <script>
+    <script>
       // It's best to inline this in `head` to avoid FOUC (flash of unstyled content) when changing pages or themes
       if (
         localStorage.getItem("color-theme") === "dark" ||
@@ -29,7 +27,7 @@
       } else {
         document.documentElement.classList.remove("dark");
       }
-    </script> -->
+    </script>
   </head>
   <body
     class="font-rubik flex min-h-screen flex-col tracking-wider dark:bg-neutral-950"
@@ -85,19 +83,19 @@
           class="hidden flex-grow flex-col pb-4 md:flex md:flex-row md:justify-end md:pb-0"
         >
           <a
-            class="focus:shadow-outline mt-2 rounded-lg bg-transparent px-4 py-2 text-sm hover:bg-gray-200 hover:text-gray-900 focus:bg-gray-200 focus:text-gray-900 focus:outline-none dark:bg-transparent dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:bg-gray-600 dark:focus:text-white md:ml-4 md:mt-0"
+            class="focus:shadow-outline mt-2 rounded-lg bg-gray-200 px-4 py-2 text-sm text-gray-900 hover:bg-gray-200 hover:text-gray-900 focus:bg-gray-200 focus:text-gray-900 focus:outline-none dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:bg-gray-600 dark:focus:text-white md:ml-4 md:mt-0"
             href="weather.html"
             >Weather</a
           >
           <a
-            class="focus:shadow-outline mt-2 rounded-lg bg-transparent px-4 py-2 text-sm hover:bg-gray-200 hover:text-gray-900 focus:bg-gray-200 focus:text-gray-900 focus:outline-none dark:bg-transparent dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:bg-gray-600 dark:focus:text-white md:ml-4 md:mt-0"
             href="about.html"
+            class="focus:shadow-outline mt-2 rounded-lg bg-transparent px-4 py-2 text-sm hover:bg-gray-200 hover:text-gray-900 focus:bg-gray-200 focus:text-gray-900 focus:outline-none dark:bg-transparent dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:bg-gray-600 dark:focus:text-white md:ml-4 md:mt-0"
             >About</a
           >
 
           <a
-            class="focus:shadow-outline mt-2 rounded-lg bg-gray-200 px-4 py-2 text-sm text-gray-900 hover:bg-gray-200 hover:text-gray-900 focus:bg-gray-200 focus:text-gray-900 focus:outline-none dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:bg-gray-600 dark:focus:text-white md:ml-4 md:mt-0"
             href="index.html"
+            class="focus:shadow-outline mt-2 rounded-lg bg-transparent px-4 py-2 text-sm hover:bg-gray-200 hover:text-gray-900 focus:bg-gray-200 focus:text-gray-900 focus:outline-none dark:bg-transparent dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:bg-gray-600 dark:focus:text-white md:ml-4 md:mt-0"
             >Home
           </a>
 
@@ -139,96 +137,9 @@
         </nav>
       </div>
     </div>
-    <main class="mt-auto">
-      <div class="slider-container">
-        <!-- Slide 1 -->
-        <div class="slide fade">
-          <img class="slide-image" src="/assets/img1.jpg" />
-          <div class="slide-content">
-            <h3 class="slide-title">Current Weather</h3>
-            <p class="slide-desc">
-              Check out the current weather conditions in your area. Stay
-              informed about temperature, humidity, and more.
-            </p>
-            <a href="weather.html" class="slide-btn dark:bg-[#D0BCFF]">
-              View Details <ion-icon name="arrow-forward-circle"></ion-icon>
-            </a>
-          </div>
-          <div class="slide-number-container">
-            <p class="slider-number">01</p>
-            <hr />
-            <p class="slider-number">03</p>
-          </div>
-        </div>
 
-        <!-- Slide 2 -->
-        <div class="slide fade">
-          <img class="slide-image" src="/assets/img2.jpg" />
-          <div class="slide-content">
-            <h3 class="slide-title">Weekly Forecast</h3>
-            <p class="slide-desc">
-              Explore the weekly weather forecast to plan your activities. Get
-              insights into temperature changes, precipitation, and more.
-            </p>
-            <a href="weather.html" class="slide-btn dark:bg-[#D0BCFF]">
-              Explore Forecast <ion-icon name="arrow-forward-circle"></ion-icon>
-            </a>
-          </div>
-          <div class="slide-number-container">
-            <p class="slider-number">02</p>
-            <hr />
-            <p class="slider-number">03</p>
-          </div>
-        </div>
+    <main class="mt-auto p-12"></main>
 
-        <!-- Slide 3 -->
-        <div class="slide fade">
-          <img class="slide-image" src="/assets/img3.jpg" />
-          <div class="slide-content">
-            <h3 class="slide-title">Weather Alerts</h3>
-            <p class="slide-desc">
-              Receive real-time weather alerts and notifications. Stay prepared
-              for sudden changes in weather conditions.
-            </p>
-            <a href="weather.html" class="slide-btn dark:bg-[#D0BCFF]">
-              Get Alerts <ion-icon name="arrow-forward-circle"></ion-icon>
-            </a>
-          </div>
-          <div class="slide-number-container">
-            <p class="slider-number">03</p>
-            <hr />
-            <p class="slider-number">03</p>
-          </div>
-        </div>
-
-        <!-- Next and previous buttons -->
-        <div class="slider-nav">
-          <a class="slider-nav-btn" onclick="plusSlides(-1)">
-            <ion-icon name="caret-back-outline"></ion-icon>
-          </a>
-          <a class="slider-nav-btn" onclick="plusSlides(1)">
-            <ion-icon name="caret-forward-outline"></ion-icon>
-          </a>
-        </div>
-
-        <!-- The dots/circles -->
-        <div class="dot-container">
-          <span class="dot" onclick="currentSlide(1)"></span>
-          <span class="dot" onclick="currentSlide(2)"></span>
-          <span class="dot" onclick="currentSlide(3)"></span>
-        </div>
-      </div>
-
-      <script
-        type="module"
-        src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-      ></script>
-      <script
-        nomodule
-        src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-      ></script>
-      <script src="slider.js"></script>
-    </main>
     <footer
       class="mt-auto bg-white px-7 pb-10 pt-2 text-black dark:bg-neutral-900 dark:text-slate-200"
     >
@@ -333,5 +244,10 @@
         </div>
       </div>
     </footer>
+    <script
+      src="https://kit.fontawesome.com/c96718c68d.js"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" src="main.js"></script>
   </body>
 </html>
