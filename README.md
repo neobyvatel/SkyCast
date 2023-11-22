@@ -1,2 +1,12 @@
-﻿# weather app project
- project uses bootstrap css, vite configuration
+# Weather App Project
+
+## Project Stack
+
+- **Vite (Vanilla JS)**
+
+- **Tailwind CSS** 
+
+- **Alpine.js**
+
+
+
