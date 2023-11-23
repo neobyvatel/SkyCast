@@ -1,5 +1,14 @@
 const fetchBtn = document.getElementById("btnFetch");
 fetchBtn.addEventListener("click", fetchWeather);
+const cityNameInput = document.getElementById("cityName");
+
+fetchBtn.addEventListener("click", fetchWeather);
+cityNameInput.addEventListener("keydown", function (event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    fetchWeather();
+  }
+});
 
 function fetchWeather() {
   let city = document.getElementById("cityName").value.trim();
@@ -20,98 +29,44 @@ function fetchWeather() {
       console.log(error);
       alert("City not found. Please check the city name and try again.");
     });
+  cityNameInput.value = "";
 }
 function showWeather(resp) {
   console.log(resp);
+  console.log(resp.daily);
+  document.getElementById("updateTime").textContent = getCurrentTime(); // Assuming you have a function getCurrentTime() to get the current time
+  document.getElementById(
+    "city"
+  ).textContent = `${resp.name}, ${resp.sys.country}`;
+  document.getElementById("temp").innerHTML = `${resp.main.temp}&deg;C`;
+  document.getElementById(
+    "feelsLike"
+  ).innerHTML = `${resp.main.feels_like}&deg;C`;
+  document.getElementById(
+    "windSpeed"
+  ).textContent = `Wind speed: ${resp.wind.speed} m/s`;
+  document.getElementById(
+    "windDirection"
+  ).textContent = `Direction: ${resp.wind.deg}°`;
+  document.getElementById("weatherDescription").textContent =
+    resp.weather[0].description;
+  document.getElementById("humidity").textContent = `${resp.main.humidity}`;
+  document.getElementById("pressure").textContent = `${resp.main.pressure} hPa`;
+  const sunriseTime = formatTimeFromTimestamp(resp.sys.sunrise);
+  const sunsetTime = formatTimeFromTimestamp(resp.sys.sunset);
+
+  document.getElementById("sunrise").textContent = `${sunriseTime}`;
+  document.getElementById("sunset").textContent = `${sunsetTime}`;
 }
-
-// function getLocation(ev) {
-//   let opts = {
-//     enableHighAccuracy: true,
-//     timeout: 1000 * 10, //10 seconds
-//     maximumAge: 1000 * 60 * 5, //5 minutes
-//   };
-//   navigator.geolocation.getCurrentPosition(ftw, wtf, opts);
-// }
-
-// clock.js
-
-// setInterval(function () {
-//   const clock = document.querySelector(".display");
-
-//   let time = new Date();
-
-//   let sec = time.getSeconds();
-//   let min = time.getMinutes();
-//   let hr = time.getHours();
-//   let day = "AM";
-
-//   if (hr > 12) {
-//     day = "PM";
-//     hr = hr - 12;
-//   }
-
-//   if (hr == 0) {
-//     hr = 12;
-//   }
-
-//   if (sec < 10) {
-//     sec = "0" + sec;
-//   }
-
-//   if (min < 10) {
-//     min = "0" + min;
-//   }
-
-//   if (hr < 10) {
-//     hr = "0" + hr;
-//   }
-
-//   clock.textContent = hr + ":" + min + ":" + sec + " " + day;
-// }, 1000); // Update every 1000 milliseconds (1 second)
-
-// const data = {
-//   labels: [],
-//   datasets: [
-//     {
-//       label: "Hourly Temperature",
-//       data: [],
-//       fill: false,
-//       borderColor: "rgba(75, 192, 192, 1)",
-//       borderWidth: 2,
-//       fill: false,
-//     },
-//   ],
-// };
-// data.labels = [
-//   "12:00 AM",
-//   "3:00 AM",
-//   "6:00 AM",
-//   "9:00 AM",
-//   "12:00 PM",
-//   "3:00 PM",
-//   "6:00 PM",
-//   "9:00 PM",
-// ];
-// data.datasets[0].data = [20, 22, 25, 28, 30, 28, 26, 24];
-// const config = {
-//   type: "line",
-//   data: data,
-//   options: {
-//     responsive: true,
-//     scales: {
-//       x: {
-//         type: "category",
-//         labels: data.labels,
-//       },
-//       y: {
-//         beginAtZero: true,
-//       },
-//     },
-//   },
-// };
-
-// document.addEventListener("DOMContentLoaded", function () {
-//   const ctx = document.getElementById("dailyTemp").getContext("2d");
-//   const myLineChart = new Chart(ctx, config);
-// });
+function getCurrentTime() {
+  const currentTime = new Date();
+  const hours = currentTime.getHours();
+  const minutes = currentTime.getMinutes();
+  return `${hours}:${minutes < 10 ? "0" : ""}${minutes}`;
+}
+function formatTimeFromTimestamp(timestamp) {
+  const date = new Date(timestamp * 1000); // Convert timestamp to milliseconds
+  const hours = date.getHours();
+  const minutes = date.getMinutes();
+  return `${hours}:${minutes < 10 ? "0" : ""}${minutes}`;
+}
