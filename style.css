@@ -167,13 +167,6 @@
   display: block;
 }
 
-.main-content-pushed {
-  transform: translate-y(
-    200px
-  ); /* Adjust the value based on the height of your navbar */
-  transition: transform 0.3s ease; /* Add a smooth transition effect */
-}
-
 .slider-container {
   width: 100%;
   position: relative;
@@ -314,7 +307,6 @@
   animation-name: fade;
   animation-duration: 1s;
 }
-
 @keyframes fade {
   from {
     opacity: 0.8;

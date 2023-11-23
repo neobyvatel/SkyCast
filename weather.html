@@ -16,21 +16,9 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" type="image/x-icon" href="assets/favicon.svg" />
     <title>Weather App</title>
-    <script>
-      // It's best to inline this in `head` to avoid FOUC (flash of unstyled content) when changing pages or themes
-      if (
-        localStorage.getItem("color-theme") === "dark" ||
-        (!("color-theme" in localStorage) &&
-          window.matchMedia("(prefers-color-scheme: dark)").matches)
-      ) {
-        document.documentElement.classList.add("dark");
-      } else {
-        document.documentElement.classList.remove("dark");
-      }
-    </script>
   </head>
   <body
-    class="font-rubik flex min-h-screen flex-col tracking-wider dark:bg-neutral-950"
+    class="flex flex-col justify-between font-rubik tracking-wider dark:bg-neutral-950 dark:text-white"
   >
     <div
       class="w-full bg-white text-gray-700 dark:bg-neutral-900 dark:text-gray-200"
@@ -104,44 +92,54 @@
           >
             Register
           </button>
-          <button
-            id="theme-toggle"
-            type="button"
-            class="rounded-lg p-2.5 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-700 md:ml-4"
-          >
-            <svg
-              id="theme-toggle-dark-icon"
-              class="hidden"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"
-              ></path>
-            </svg>
-            <svg
-              id="theme-toggle-light-icon"
-              class="hidden"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-              ></path>
-            </svg>
-          </button>
         </nav>
       </div>
     </div>
+    <main class="flex flex-col p-7">
+      <form
+        class="mx-auto flex w-full flex-col gap-2 lg:mx-0 lg:w-1/2 lg:flex-row"
+      >
+        <input
+          type="text"
+          placeholder="Enter city name"
+          id="cityName"
+          class="block w-full rounded-lg border border-gray-300 bg-gray-200 p-2.5 text-sm text-gray-900 focus:border-purple-500 focus:ring-purple-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-purple-500 dark:focus:ring-purple-500"
+        />
+        <button
+          type="button"
+          id="btnFetch"
+          class="block w-full rounded-lg bg-[#591D87] p-2 px-4 text-sm font-semibold text-gray-200 transition-all hover:bg-[#461669] dark:bg-[#D0BCFF] dark:text-black dark:hover:bg-[#B899FF]"
+        >
+          Get Weather
+        </button>
+      </form>
 
-    <main class="mt-auto p-12"></main>
+      <div
+        id="weatherInfoContainer"
+        class="flex flex-col gap-3 [&>*]:rounded-lg"
+      >
+        <div class="flex flex-col gap-3 md:flex-row">
+          <div id="weather-1 flex-1">
+            <h1 id="city">Astana, KZ</h1>
+            <h1 id="temp">--</h1>
+            <p id="weatherDescription">--</p>
+          </div>
+          <div id="weather-2 flex-1 ">
+            <h1 id="windSpeed">--</h1>
+            <p id="windDirection">--</p>
+            <p>Feels like <span id="feelsLike">--</span></p>
+          </div>
+        </div>
+        <div id="weather-3">
+          <p>Humidity: <span id="humidity">--</span>%</p>
+          <p>Pressure: <span id="pressure">--</span> hPa</p>
+          <p>Visibility: <span id="visibility">--</span> meters</p>
+        </div>
+      </div>
+    </main>
 
     <footer
-      class="mt-auto bg-white px-7 pb-10 pt-2 text-black dark:bg-neutral-900 dark:text-slate-200"
+      class="bg-white px-7 pb-10 pt-2 text-black dark:bg-neutral-900 dark:text-slate-200"
     >
       <div
         id="contact"
@@ -244,10 +242,7 @@
         </div>
       </div>
     </footer>
-    <script
-      src="https://kit.fontawesome.com/c96718c68d.js"
-      crossorigin="anonymous"
-    ></script>
+
     <script type="module" src="main.js"></script>
   </body>
 </html>
