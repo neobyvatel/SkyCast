@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="light">
+<html lang="en" class="dark">
   <head>
     <meta charset="utf-8" />
     <meta
@@ -11,7 +11,6 @@
       src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
     ></script>
     <link rel="stylesheet" href="style.css" />
-    <link rel="icon" type="image/x-icon" href="assets/favicon.svg" />
     <title>Weather App</title>
   </head>
 
@@ -42,7 +41,7 @@
               />
             </svg>
 
-            Weather-app</a
+            SkyCast</a
           >
           <button
             class="focus:shadow-outline rounded-lg focus:outline-none md:hidden"
@@ -69,107 +68,200 @@
           class="hidden flex-grow flex-col pb-4 md:flex md:flex-row md:justify-end md:pb-0"
         >
           <a
-            class="focus:shadow-outline mt-2 rounded-lg px-4 py-2 text-sm text-gray-900 hover:bg-gray-200 hover:text-gray-900 focus:bg-gray-200 focus:text-gray-900 focus:outline-none dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:bg-gray-600 dark:focus:text-white md:ml-4 md:mt-0"
-            href="weather.html"
+            class="focus:shadow-outline mt-2 rounded-lg px-4 py-2 text-sm text-gray-900 transition-all hover:bg-gray-200 hover:text-gray-900 focus:bg-gray-200 focus:text-gray-900 focus:outline-none dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:bg-gray-600 dark:focus:text-white md:ml-4 md:mt-0"
+            href="#"
             >Weather</a
           >
           <a
-            href="admin.html"
-            class="focus:shadow-outline mt-2 rounded-lg bg-transparent px-4 py-2 text-sm hover:bg-gray-200 hover:text-gray-900 focus:bg-gray-200 focus:text-gray-900 focus:outline-none dark:bg-transparent dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:bg-gray-600 dark:focus:text-white md:ml-4 md:mt-0"
+            href="#"
+            class="focus:shadow-outline mt-2 rounded-lg bg-transparent px-4 py-2 text-sm transition-all hover:bg-gray-200 hover:text-gray-900 focus:bg-gray-200 focus:text-gray-900 focus:outline-none dark:bg-transparent dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:bg-gray-600 dark:focus:text-white md:ml-4 md:mt-0"
             >Profile</a
           >
           <a
-            href="about.html"
-            class="focus:shadow-outline mt-2 rounded-lg bg-transparent px-4 py-2 text-sm hover:bg-gray-200 hover:text-gray-900 focus:bg-gray-200 focus:text-gray-900 focus:outline-none dark:bg-transparent dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:bg-gray-600 dark:focus:text-white md:ml-4 md:mt-0"
+            href="#"
+            class="focus:shadow-outline mt-2 rounded-lg bg-transparent px-4 py-2 text-sm transition-all hover:bg-gray-200 hover:text-gray-900 focus:bg-gray-200 focus:text-gray-900 focus:outline-none dark:bg-transparent dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:bg-gray-600 dark:focus:text-white md:ml-4 md:mt-0"
             >About</a
           >
           <button
-            class="toggleTheme mt-2 w-full rounded-lg bg-[#591D87] p-2 px-4 text-sm font-semibold text-gray-200 transition-all hover:bg-[#461669] dark:bg-[#D0BCFF] dark:text-black dark:hover:bg-[#B899FF] md:ml-2 md:mt-0 md:w-auto"
+            id="toggleTheme"
+            class="mt-2 w-full rounded-full bg-transparent text-sm font-semibold text-black transition-all dark:text-gray-200 dark:hover:text-gray-400 md:ml-4 md:mt-0 md:w-auto"
           >
-            Toggle Theme
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="2em"
+              height="2em"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fill="currentColor"
+                d="M10 3.5a6.5 6.5 0 1 1 0 13v-13ZM10 2a8 8 0 1 0 0 16a8 8 0 0 0 0-16Z"
+              />
+            </svg>
           </button>
         </nav>
       </div>
     </div>
     <main class="mt-auto">
-      <div class="slider-container">
-        <!-- Slide 1 -->
-        <div class="slide fade">
-          <img class="slide-image" src="/assets/img1.jpg" />
-          <div class="slide-content">
-            <h3 class="slide-title">Current Weather</h3>
-            <p class="slide-desc">
-              Check out the current weather conditions in your area. Stay
-              informed about temperature, humidity, and more.
-            </p>
-            <a href="weather.html" class="slide-btn dark:bg-[#D0BCFF]">
-              View Details <ion-icon name="arrow-forward-circle"></ion-icon>
+      <section id="slider-area">
+        <div class="slider-container">
+          <!-- Slide 1 -->
+          <div class="slide fade">
+            <img class="slide-image" src="/assets/img1.jpg" />
+            <div class="slide-content">
+              <h3 class="slide-title">Current Weather</h3>
+              <p class="slide-desc">
+                Check out the current weather conditions in your area. Stay
+                informed about temperature, humidity, and more.
+              </p>
+              <a
+                href="#"
+                class="slide-btn dark:bg-[#D0BCFF] dark:hover:bg-[#B899FF]"
+              >
+                View Details <ion-icon name="arrow-forward-circle"></ion-icon>
+              </a>
+            </div>
+            <div class="slide-number-container">
+              <p class="slider-number">01</p>
+              <hr />
+              <p class="slider-number">03</p>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="slide fade">
+            <img class="slide-image" src="/assets/img2.jpg" />
+            <div class="slide-content">
+              <h3 class="slide-title">Weekly Forecast</h3>
+              <p class="slide-desc">
+                Explore the weekly weather forecast to plan your activities. Get
+                insights into temperature changes, precipitation, and more.
+              </p>
+              <a
+                href="#"
+                class="slide-btn dark:bg-[#D0BCFF] dark:hover:bg-[#B899FF]"
+              >
+                Explore Forecast
+                <ion-icon name="arrow-forward-circle"></ion-icon>
+              </a>
+            </div>
+            <div class="slide-number-container">
+              <p class="slider-number">02</p>
+              <hr />
+              <p class="slider-number">03</p>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="slide fade">
+            <img class="slide-image" src="/assets/img3.jpg" />
+            <div class="slide-content">
+              <h3 class="slide-title">Weather Alerts</h3>
+              <p class="slide-desc">
+                Receive real-time weather alerts and notifications. Stay
+                prepared for sudden changes in weather conditions.
+              </p>
+              <a
+                href="#"
+                class="slide-btn dark:bg-[#D0BCFF] dark:hover:bg-[#B899FF]"
+              >
+                Get Alerts <ion-icon name="arrow-forward-circle"></ion-icon>
+              </a>
+            </div>
+            <div class="slide-number-container">
+              <p class="slider-number">03</p>
+              <hr />
+              <p class="slider-number">03</p>
+            </div>
+          </div>
+
+          <!-- Next and previous buttons -->
+          <div class="slider-nav">
+            <a class="slider-nav-btn" onclick="plusSlides(-1)">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="22"
+                height="22"
+                viewBox="0 0 32 32"
+              >
+                <path
+                  fill="currentColor"
+                  d="M20.834 8.037L9.64 14.5c-1.43.824-1.43 2.175 0 3l11.194 6.463c1.43.826 2.598.15 2.598-1.5V9.537c0-1.65-1.17-2.326-2.598-1.5z"
+                />
+              </svg>
+            </a>
+            <a class="slider-nav-btn" onclick="plusSlides(1)"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="22"
+                height="22"
+                viewBox="0 0 32 32"
+              >
+                <path
+                  fill="currentColor"
+                  d="M11.166 23.963L22.36 17.5c1.43-.824 1.43-2.175 0-3L11.165 8.037c-1.43-.826-2.598-.15-2.598 1.5v12.926c0 1.65 1.17 2.326 2.598 1.5z"
+                />
+              </svg>
             </a>
           </div>
-          <div class="slide-number-container">
-            <p class="slider-number">01</p>
-            <hr />
-            <p class="slider-number">03</p>
+
+          <!-- The dots/circles -->
+          <div class="dot-container">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
           </div>
         </div>
+      </section>
+      <section id="weather-area" class="p-7">
+        <form
+          class="mx-auto flex w-full flex-col gap-5 font-semibold lg:mx-0 lg:w-1/2 lg:flex-row"
+        >
+          <input
+            type="text"
+            placeholder="Enter city name"
+            id="cityName"
+            class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-purple-500 focus:ring-purple-500 dark:border-gray-600 dark:bg-gray-500 dark:text-white dark:placeholder-gray-400 dark:focus:border-purple-500 dark:focus:ring-purple-500"
+          />
+          <button
+            type="button"
+            id="btnFetch"
+            class="block w-full rounded-lg bg-[#591D87] p-2 px-4 text-sm font-semibold text-gray-200 transition-all hover:bg-[#461669] dark:bg-[#D0BCFF] dark:text-black dark:hover:bg-[#B899FF]"
+          >
+            Get Weather
+          </button>
+        </form>
 
-        <!-- Slide 2 -->
-        <div class="slide fade">
-          <img class="slide-image" src="/assets/img2.jpg" />
-          <div class="slide-content">
-            <h3 class="slide-title">Weekly Forecast</h3>
-            <p class="slide-desc">
-              Explore the weekly weather forecast to plan your activities. Get
-              insights into temperature changes, precipitation, and more.
+        <div
+          class="mt-5 flex flex-col flex-wrap gap-5 text-white dark:text-neutral-950 md:flex-row [&>*]:rounded-lg [&>*]:p-7 [&>*]:font-bold [&>*]:shadow-lg [&>*]:transition-all"
+        >
+          <div
+            class="flex-1 bg-fuchsia-800 hover:bg-fuchsia-900 dark:bg-indigo-300 dark:hover:bg-indigo-400"
+          >
+            <p id="updateTime" class="text-sm">10:38</p>
+            <h1 id="city" class="text-3xl">City, Country</h1>
+            <h1 id="temp" class="text-6xl">--&deg;C</h1>
+            <p class="text-2xl">
+              feels like <span id="feelsLike">--&deg;C</span>
             </p>
-            <a href="weather.html" class="slide-btn dark:bg-[#D0BCFF]">
-              Explore Forecast <ion-icon name="arrow-forward-circle"></ion-icon>
-            </a>
           </div>
-          <div class="slide-number-container">
-            <p class="slider-number">02</p>
-            <hr />
-            <p class="slider-number">03</p>
+          <div
+            class="flex-1 bg-purple-800 hover:bg-purple-900 dark:bg-violet-300 dark:hover:bg-violet-400"
+          >
+            <h1 id="windSpeed" class="text-4xl">wind speed: -- m/s</h1>
+            <p id="windDirection" class="text-xl">direction: --</p>
+            <p class="text-3xl">pressure: <span id="pressure">--</span></p>
+            <p class="text-3xl">humidity: <span id="humidity">--</span>%</p>
           </div>
-        </div>
+          <div
+            class="w-full bg-rose-800 hover:bg-rose-900 dark:bg-fuchsia-300 dark:hover:bg-fuchsia-400"
+          >
+            <p id="weatherDescription" class="text-4xl">description</p>
 
-        <!-- Slide 3 -->
-        <div class="slide fade">
-          <img class="slide-image" src="/assets/img3.jpg" />
-          <div class="slide-content">
-            <h3 class="slide-title">Weather Alerts</h3>
-            <p class="slide-desc">
-              Receive real-time weather alerts and notifications. Stay prepared
-              for sudden changes in weather conditions.
-            </p>
-            <a href="weather.html" class="slide-btn dark:bg-[#D0BCFF]">
-              Get Alerts <ion-icon name="arrow-forward-circle"></ion-icon>
-            </a>
-          </div>
-          <div class="slide-number-container">
-            <p class="slider-number">03</p>
-            <hr />
-            <p class="slider-number">03</p>
+            <p class="text-2xl">sunrise <span id="sunrise">--</span></p>
+            <p class="text-2xl">sunset: <span id="sunset">--</span></p>
           </div>
         </div>
-
-        <!-- Next and previous buttons -->
-        <div class="slider-nav">
-          <a class="slider-nav-btn" onclick="plusSlides(-1)">
-            <ion-icon name="caret-back-outline"></ion-icon>
-          </a>
-          <a class="slider-nav-btn" onclick="plusSlides(1)">
-            <ion-icon name="caret-forward-outline"></ion-icon>
-          </a>
-        </div>
-
-        <!-- The dots/circles -->
-        <div class="dot-container">
-          <span class="dot" onclick="currentSlide(1)"></span>
-          <span class="dot" onclick="currentSlide(2)"></span>
-          <span class="dot" onclick="currentSlide(3)"></span>
-        </div>
-      </div>
+      </section>
 
       <script
         type="module"
@@ -240,7 +332,7 @@
           </svg>
         </a>
         <a
-          href="https://github.com/neobyvatel/weather-app-project"
+          href="https://github.com/neobyvatel/SkyCast"
           target="_blank"
           rel="noopener noreferrer"
           class="hover:brightness-90 dark:hover:brightness-110"
@@ -270,16 +362,7 @@
               >Adil Kenzhiyev</a
             >
             <br />
-            Special thanks to
-            <a
-              href="https://github.com/AidanaIbrayeva"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="hover:underline"
-              >Aidana Ibrayeva</a
-            >
-            for contributing to the project
-            <br />
+
             <span class="font-bold">&copy; 2023</span>
           </p>
         </div>
